@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module phq_TriviaMaze {
-}
