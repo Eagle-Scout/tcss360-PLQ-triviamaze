@@ -12,19 +12,19 @@ public class TriviaDoor {
      */
     private boolean myLocked;
 
-    // i dont know what this is supposed to be in the uml diagram so i have it, im not supposed
-    // to be able to do it, so its commented out
-
-    // private final AbstractQuestion myQuestion = new AbstractQuestion();
+    /**
+     * 
+     */
+    private final AbstractTriviaQuestion myQuestion;
 
     /**
      * 
      * @param theLocked
      */
-    public TriviaDoor(final boolean theLocked) {
+    public TriviaDoor(final boolean theLocked, final AbstractTriviaQuestion theQuestion) {
 
-        setLocked(theLocked);
-
+        myQuestion = theQuestion;
+        myLocked = theLocked;
     }
 
     /**
@@ -44,9 +44,10 @@ public class TriviaDoor {
 
     /**
      * 
-     * @param theLocked
+     * @return
      */
-    private void setLocked(final boolean theLocked) {
-        myLocked = theLocked;
+    public AbstractTriviaQuestion getQuestion() {
+        return myQuestion;
     }
+
 }

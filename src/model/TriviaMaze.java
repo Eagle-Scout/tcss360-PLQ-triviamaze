@@ -12,19 +12,20 @@ public class TriviaMaze {
     /**
      * 
      */
-    private TriviaRoom[][] myRooms;
+    private final TriviaRoom[][] myRooms;
 
     /**
      * 
      */
-    private Player myPlayer;
+    private final Player myPlayer;
 
     /**
      * 
      */
     public TriviaMaze(final TriviaRoom[][] theRooms, final Player thePlayer) {
-        setRooms(theRooms);
-        setPlayer(thePlayer);
+        myRooms = Arrays.copyOf(theRooms, theRooms.length);
+        myPlayer = thePlayer;
+
     }
 
     /**
@@ -60,8 +61,8 @@ public class TriviaMaze {
     public TriviaRoom getRoom(final int theX, final int theY) {
         TriviaRoom room = null;
 
-        if (theY > 0 && theY < myRooms.length && theX > 0 && theX < myRooms[theY].length) {
-            room = myRooms[theX][theY];
+        if (theY >= 0 && theY < myRooms.length && theX >= 0 && theX < myRooms[theY].length) {
+            room = myRooms[theY][theX];
         }
 
         return room;
@@ -95,26 +96,10 @@ public class TriviaMaze {
 
     /**
      * 
-     * @param theRooms
-     */
-    private void setRooms(final TriviaRoom[][] theRooms) {
-        myRooms = theRooms;
-    }
-
-    /**
-     * 
      * @return
      */
     public Player getPlayer() {
         return myPlayer;
-    }
-
-    /**
-     * 
-     * @param theRooms
-     */
-    private void setPlayer(final Player theRooms) {
-        myPlayer = theRooms;
     }
 
 }

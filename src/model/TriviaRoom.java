@@ -12,15 +12,14 @@ public class TriviaRoom {
     /**
      * 
      */
-    private Map<Direction, TriviaDoor> myDoors;
+    private final Map<Direction, TriviaDoor> myDoors;
 
     /**
      * 
      * @param theDoors
      */
     public TriviaRoom(final Map<Direction, TriviaDoor> theDoors) {
-        setDoors(theDoors);
-
+        myDoors = theDoors;
     }
 
     /**
@@ -49,14 +48,6 @@ public class TriviaRoom {
     public Map<Direction, TriviaDoor> getDoors() {
 
         return myDoors;
-    }
-
-    /**
-     * 
-     * @param theDoors
-     */
-    private void setDoors(final Map<Direction, TriviaDoor> theDoors) {
-        myDoors = theDoors;
     }
 
 }
