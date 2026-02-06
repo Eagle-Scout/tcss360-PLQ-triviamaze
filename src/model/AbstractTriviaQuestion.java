@@ -5,7 +5,7 @@ package model;
  * @author peytonlaudanski
  * @version 1
  */
-public abstract class AbstractQuestion {
+public abstract class AbstractTriviaQuestion {
 
     /**
      * 
@@ -22,7 +22,7 @@ public abstract class AbstractQuestion {
      * @param thePrompt
      * @param theID
      */
-    public AbstractQuestion(final String thePrompt, final int theID) {
+    public AbstractTriviaQuestion(final String thePrompt, final int theID) {
         setPrompt(thePrompt);
         setID(theID);
     }

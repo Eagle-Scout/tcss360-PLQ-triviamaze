@@ -7,18 +7,18 @@ import java.util.Map;
  * @author peytonlaudanski
  * @version 1
  */
-public class MazeRoom {
+public class TriviaRoom {
 
     /**
      * 
      */
-    private Map<Direction, RoomDoor> myDoors;
+    private Map<Direction, TriviaDoor> myDoors;
 
     /**
      * 
      * @param theDoors
      */
-    public MazeRoom(final Map<Direction, RoomDoor> theDoors) {
+    public TriviaRoom(final Map<Direction, TriviaDoor> theDoors) {
         setDoors(theDoors);
 
     }
@@ -28,7 +28,7 @@ public class MazeRoom {
      * @param theDir
      * @return
      */
-    public RoomDoor getDoor(final Direction theDir) {
+    public TriviaDoor getDoor(final Direction theDir) {
 
         return myDoors.get(theDir);
     }
@@ -46,7 +46,7 @@ public class MazeRoom {
      * 
      * @return
      */
-    public Map<Direction, RoomDoor> getMyDoors() {
+    public Map<Direction, TriviaDoor> getDoors() {
 
         return myDoors;
     }
@@ -55,7 +55,7 @@ public class MazeRoom {
      * 
      * @param theDoors
      */
-    private void setDoors(final Map<Direction, RoomDoor> theDoors) {
+    private void setDoors(final Map<Direction, TriviaDoor> theDoors) {
         myDoors = theDoors;
     }
 

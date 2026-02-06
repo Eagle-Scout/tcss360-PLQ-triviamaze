@@ -7,7 +7,7 @@ import java.util.List;
  * @author peytonlaudanski
  * @version 1
  */
-public class MultipleChoiceQuestion extends AbstractQuestion {
+public class MultipleChoiceQuestion extends AbstractTriviaQuestion {
 
     /**
      * 

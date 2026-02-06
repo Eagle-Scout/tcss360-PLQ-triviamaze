@@ -43,7 +43,7 @@ public class Player {
      * 
      * @return
      */
-    public int getMyX() {
+    public int getX() {
         return myX;
     }
 
@@ -59,7 +59,7 @@ public class Player {
      * 
      * @return
      */
-    public int getMyY() {
+    public int getY() {
         return myY;
     }
 

@@ -26,10 +26,11 @@ public class MazeController {
      * @param theView
      */
     public MazeController(final TriviaMaze theMaze, final MazeView theView) {
-        setMaze(new TriviaMaze());
-        setView(new MazeView());
-
+        setMaze(theMaze);
+        setView(theView);
     }
+
+
 
     /**
      * 
@@ -77,4 +78,11 @@ public class MazeController {
         return myMaze;
     }
 
+    /**
+     * 
+     * @param theArgs
+     */
+    public static void main(final String[] theArgs) {
+
+    }
 }

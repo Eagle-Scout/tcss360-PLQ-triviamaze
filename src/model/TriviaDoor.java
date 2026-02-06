@@ -5,7 +5,7 @@ package model;
  * @author peytonlaudanski
  * @version 1
  */
-public class RoomDoor {
+public class TriviaDoor {
 
     /**
      * 
@@ -21,7 +21,7 @@ public class RoomDoor {
      * 
      * @param theLocked
      */
-    public RoomDoor(final boolean theLocked) {
+    public TriviaDoor(final boolean theLocked) {
 
         setLocked(theLocked);
 

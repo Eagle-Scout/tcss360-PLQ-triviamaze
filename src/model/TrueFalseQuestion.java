@@ -5,7 +5,7 @@ package model;
  * @author peytonlaudanski
  * @version 1
  */
-public class TrueFalseQuestion extends AbstractQuestion {
+public class TrueFalseQuestion extends AbstractTriviaQuestion {
 
     /**
      * 
