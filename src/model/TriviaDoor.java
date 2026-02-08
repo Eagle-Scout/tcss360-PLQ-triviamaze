@@ -27,6 +27,7 @@ public class TriviaDoor {
         myLocked = theLocked;
     }
 
+
     /**
      * 
      */
