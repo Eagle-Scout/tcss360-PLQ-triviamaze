@@ -1,5 +1,6 @@
 package control;
 
+import model.Direction;
 import model.TriviaMaze;
 import view.MazeView;
 
@@ -81,6 +82,10 @@ public class MazeController {
      * @param theArgs
      */
     public static void main(final String[] theArgs) {
+
+        final TriviaMaze maze = new TriviaMaze(null, null);
+
+        maze.movePlayer(Direction.NORTH);
 
     }
 }
