@@ -8,7 +8,7 @@ package control;
 public class GameCaretaker {
 
     /**
-     * 
+     *  
      */
     private GameState myGame;
 
