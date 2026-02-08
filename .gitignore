@@ -28,8 +28,6 @@ replay_pid*
 .DS_Store
 
 # Eclipse
-.project
-.classpath
 .settings/
 .checkstyle
 .pmd
