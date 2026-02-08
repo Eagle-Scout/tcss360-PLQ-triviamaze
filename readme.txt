@@ -16,6 +16,3 @@ discussions and coordinated with the team via Discord.
 Huy Le:  
 Researching and working on SRS and UML diagram along with communicating 
 with team in discord on project related topics during the first sprint.
-
-
-really gotta make a change here so i can see actual change cause nothing is changing and its weird
