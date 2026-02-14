@@ -38,6 +38,7 @@ public class TriviaMaze {
 
         TriviaRoom next = null;
 
+
         if (current != null && current.hasDoor(theDir)) {
             final int newX = myPlayer.getX() + theDir.getDX();
             final int newY = myPlayer.getY() + theDir.getDY();
@@ -45,7 +46,8 @@ public class TriviaMaze {
 
         }
 
-        if (next != null && next.getDoor(theDir.opposite()) != null) {
+        if (next != null && next.getDoor(theDir.opposite()) != null
+                && !current.getDoor(theDir).isLocked()) {
             myPlayer.move(theDir);
 
         }
@@ -91,7 +93,13 @@ public class TriviaMaze {
      * @return
      */
     public TriviaRoom[][] getRooms() {
-        return Arrays.copyOf(myRooms, myRooms.length);
+        final TriviaRoom[][] copy = new TriviaRoom[myRooms.length][];
+        for (int i = 0; i < myRooms.length; i++) {
+            copy[i] = Arrays.copyOf(myRooms[i], myRooms[i].length);
+
+        }
+        return copy;
+
     }
 
     /**

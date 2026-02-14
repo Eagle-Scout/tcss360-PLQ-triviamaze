@@ -28,7 +28,12 @@ public class ShortQuestion extends AbstractTriviaQuestion {
      */
     @Override
     public boolean checkAnswer(final String theAnswer) {
-        return theAnswer.equals(myAnswer);
+
+        Boolean bool = false;
+        if (theAnswer != null) {
+            bool = theAnswer.equals(myAnswer);
+        }
+        return bool;
     }
 
     /**

@@ -39,6 +39,9 @@ public class MultipleChoiceQuestion extends AbstractTriviaQuestion {
     @Override
     public boolean checkAnswer(final String theAnswer) {
 
+        if (myIndex < 0 || myIndex >= myChoices.size()) {
+            throw new IllegalStateException("Invalid question: index out of bounds");
+        }
         return theAnswer.equals(myChoices.get(myIndex));
     }
 

@@ -24,8 +24,9 @@ public class Player {
      */
     public Player(final int theX, final int theY) {
 
-        setX(theX);
         setY(theY);
+        setX(theX);
+
     }
 
     /**

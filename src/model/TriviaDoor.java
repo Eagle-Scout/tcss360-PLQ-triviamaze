@@ -39,7 +39,7 @@ public class TriviaDoor {
      * 
      * @return
      */
-    public boolean isMyLocked() {
+    public boolean isLocked() {
         return myLocked;
     }
 

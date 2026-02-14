@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Collections;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -19,7 +21,10 @@ public class TriviaRoom {
      * @param theDoors
      */
     public TriviaRoom(final Map<Direction, TriviaDoor> theDoors) {
-        myDoors = theDoors;
+        if (theDoors == null || theDoors.isEmpty()) {
+            throw new IllegalArgumentException("Room must have at least one door");
+        }
+        myDoors = new EnumMap<>(theDoors);
     }
 
     /**
@@ -47,7 +52,7 @@ public class TriviaRoom {
      */
     public Map<Direction, TriviaDoor> getDoors() {
 
-        return myDoors;
+        return Collections.unmodifiableMap(myDoors);
     }
 
 }
