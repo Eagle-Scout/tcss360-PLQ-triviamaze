@@ -28,6 +28,7 @@ public class TrueFalseQuestion extends AbstractTriviaQuestion {
      */
     @Override
     public boolean checkAnswer(final String theAnswer) {
+
         return theAnswer.equals(String.valueOf(myCorrectAnswer));
     }
 

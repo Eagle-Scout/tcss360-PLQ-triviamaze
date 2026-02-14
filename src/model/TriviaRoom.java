@@ -42,6 +42,17 @@ public class TriviaRoom {
      * @param theDir
      * @return
      */
+    public AbstractTriviaQuestion getQuestion(final Direction theDir) {
+        final TriviaDoor door = getDoor(theDir);
+
+        return door.getQuestion();
+    }
+
+    /**
+     * 
+     * @param theDir
+     * @return
+     */
     public boolean hasDoor(final Direction theDir) {
         return myDoors.containsKey(theDir);
     }

@@ -31,23 +31,34 @@ public class TriviaMaze {
     /**
      * 
      * @param theDir
+     * @param theAnswer
+     */
+    public void attemptMove(final Direction theDir, final Boolean theBool) {
+        final TriviaRoom current = getCurrentRoom();
+
+        if (current != null && current.hasDoor(theDir)) {
+
+            final TriviaDoor door = current.getDoor(theDir);
+
+            if (theBool) {
+                movePlayer(theDir);
+            } else {
+                door.lock();
+            }
+        }
+    }
+
+    /**
+     * 
+     * @param theDir
      */
     public void movePlayer(final Direction theDir) {
 
-        final TriviaRoom current = getCurrentRoom();
+        final int newX = myPlayer.getX() + theDir.getDX();
+        final int newY = myPlayer.getY() + theDir.getDY();
+        final TriviaRoom next = getRoom(newX, newY);
 
-        TriviaRoom next = null;
-
-
-        if (current != null && current.hasDoor(theDir)) {
-            final int newX = myPlayer.getX() + theDir.getDX();
-            final int newY = myPlayer.getY() + theDir.getDY();
-            next = getRoom(newX, newY);
-
-        }
-
-        if (next != null && next.getDoor(theDir.opposite()) != null
-                && !current.getDoor(theDir).isLocked()) {
+        if (next != null && next.getDoor(theDir.opposite()) != null) {
             myPlayer.move(theDir);
 
         }
