@@ -31,7 +31,7 @@ public class TriviaMaze {
     /**
      * 
      * @param theDir
-     * @param theAnswer
+     * @param theBool
      */
     public void attemptMove(final Direction theDir, final Boolean theBool) {
         final TriviaRoom current = getCurrentRoom();
