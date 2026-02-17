@@ -1,6 +1,6 @@
 TCSS 360 TRIVIA MAZE  
 
-ITERATION 2  
+ITERATION 3  
 
 Peyton Laudanski:  
 Mostly experienced issues with implementing the UML diagram into java code and 
@@ -17,4 +17,5 @@ discussions and coordinated with the team via Discord.
 
 
 Huy Le:  
-I encountered some issues updating code using Git, but I have fixed them.
+No major issues this iteration, except I made sure not to overwrite my teammates' code,
+so I kept my previous code locally as a backup while rebuilding my work using the updated main branch.
