@@ -3,11 +3,13 @@ TCSS 360 TRIVIA MAZE
 ITERATION 3  
 
 Peyton Laudanski:  
-Mostly experienced issues with implementing the UML diagram into java code and 
-understanding where and how certain code should work and live. Had a huge issue 
-on my local machine where every time I did something the Eclipse specific files 
-would be deleted, resulting in a project that wouldn't open. 
-Now thats fixed and things work just fine.
+Mostly experienced issues with implementing the QuestionFactory series of classes, I had AI 
+create a tester method which is currently not up to date with the rest of main branch, and that method 
+helped expose some issues that I had when working with the tester method so I fixed those issues, which is
+why the method is not up to date with the project. Some of those issues were door logic, ie I could go through 
+doors even when questions were answered wrong, so now I have a method that passes in 
+whether the question was answered right (as a boolean), and the direction of movement, now I 
+can only move (handled elsewhere) when the question was answered correctly. 
 
 
 Quinn Weinzoff:  
