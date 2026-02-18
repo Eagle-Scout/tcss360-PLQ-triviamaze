@@ -45,8 +45,8 @@ public class TriviaMaze {
             } else {
                 door.lock();
             }
-        } else {
-            System.out.println("no door that way");
+            // } else {
+            // System.out.println("no door that way");
         }
     }
 
