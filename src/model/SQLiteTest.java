@@ -1,7 +1,6 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,7 +8,7 @@ import java.sql.Statement;
 import org.sqlite.SQLiteDataSource;
 
 /**
- * 
+ *
  * @author peytonlaudanski
  * @version 1
  */
@@ -83,9 +82,9 @@ public class SQLiteTest {
                 System.out.println("Result: Question = " + question + ", Answer = " + answer);
             }
 
-            query = "DELETE FROM questions";
-            final PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.executeUpdate();
+            // query = "DELETE FROM questions";
+            // final PreparedStatement pstmt = conn.prepareStatement(query);
+            // pstmt.executeUpdate();
 
         } catch (final SQLException e) {
             e.printStackTrace();

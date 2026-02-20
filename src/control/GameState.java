@@ -33,7 +33,7 @@ public class GameState {
     public GameState(final int theX, final int theY, final List<Integer> theDoors) {
         setX(theX);
         setY(theY);
-        setLockedDoors(theDoors);
+        setDoors(theDoors);
     }
 
     /**
@@ -72,7 +72,7 @@ public class GameState {
      * 
      * @return
      */
-    public List<Integer> getMyLockedDoors() {
+    public List<Integer> getMyDoors() {
         return myDoors;
     }
 
@@ -80,7 +80,7 @@ public class GameState {
      * 
      * @param theDoors
      */
-    private void setLockedDoors(final List<Integer> theDoors) {
+    private void setDoors(final List<Integer> theDoors) {
         myDoors = theDoors;
     }
 
