@@ -1,6 +1,6 @@
 package control;
 
-import java.util.List;
+import model.TriviaRoom;
 
 /**
  * 
@@ -22,7 +22,7 @@ public class GameState {
     /**
      * 
      */
-    private List<Integer> myDoors;
+    private TriviaRoom[][] myRooms;
 
     /**
      * 
@@ -30,10 +30,10 @@ public class GameState {
      * @param theY
      * @param theDoors
      */
-    public GameState(final int theX, final int theY, final List<Integer> theDoors) {
+    public GameState(final int theX, final int theY, final TriviaRoom[][] theRooms) {
         setX(theX);
         setY(theY);
-        setDoors(theDoors);
+        setRooms(theRooms);
     }
 
     /**
@@ -72,16 +72,16 @@ public class GameState {
      * 
      * @return
      */
-    public List<Integer> getMyDoors() {
-        return myDoors;
+    public TriviaRoom[][] getRooms() {
+        return myRooms.clone();
     }
 
     /**
      * 
      * @param theDoors
      */
-    private void setDoors(final List<Integer> theDoors) {
-        myDoors = theDoors;
+    private void setRooms(final TriviaRoom[][] theRooms) {
+        myRooms = theRooms;
     }
 
 }
