@@ -24,7 +24,7 @@ public final class QuestionFactory {
     /**
      * 
      */
-    private QuestionFactory() {
+    public QuestionFactory() {
     }
 
     /**

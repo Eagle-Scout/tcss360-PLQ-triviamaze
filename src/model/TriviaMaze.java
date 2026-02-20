@@ -44,7 +44,9 @@ public class TriviaMaze implements Serializable {
             final TriviaDoor door = current.getDoor(theDir);
 
             if (theBool) {
+                door.open();
                 movePlayer(theDir);
+
             } else {
                 door.lock();
             }
@@ -57,7 +59,7 @@ public class TriviaMaze implements Serializable {
      * 
      * @param theDir
      */
-    public void movePlayer(final Direction theDir) {
+    private void movePlayer(final Direction theDir) {
 
         final int newX = myPlayer.getX() + theDir.getDX();
         final int newY = myPlayer.getY() + theDir.getDY();
