@@ -12,15 +12,26 @@ import org.sqlite.SQLiteDataSource;
  * @author peytonlaudanski
  * @version 1
  */
-public class SQLiteTest {
+public final class SQLite {
 
+    /**
+     * 
+     */
+    private SQLite() {
+
+    }
+
+    /**
+     * 
+     * @param theArgs
+     */
     public static void main(final String[] theArgs) {
-        SQLiteDataSource ds = null;
+        SQLiteDataSource dataSource = null;
 
         // establish connection (creates db file if it does not exist :-)
         try {
-            ds = new SQLiteDataSource();
-            ds.setUrl("jdbc:sqlite:questions.db");
+            dataSource = new SQLiteDataSource();
+            dataSource.setUrl("jdbc:sqlite:questions.db");
         } catch (final Exception e) {
             e.printStackTrace();
             System.exit(0);
@@ -32,11 +43,11 @@ public class SQLiteTest {
         String query = "CREATE TABLE IF NOT EXISTS questions ( " + "QUESTION TEXT NOT NULL, "
                 + "ANSWER TEXT NOT NULL )";
 
-        try (Connection conn = ds.getConnection() ;
-                Statement stmt = conn.createStatement() ;) {
+        try (Connection conn = dataSource.getConnection();
+                Statement stmt = conn.createStatement();) {
 
-            final int rv = stmt.executeUpdate(query);
-            System.out.println("executeUpdate() returned " + rv);
+            final int returnValue = stmt.executeUpdate(query);
+            System.out.println("executeUpdate() returned " + returnValue);
         } catch (final SQLException e) {
             e.printStackTrace();
             System.exit(0);
@@ -51,13 +62,13 @@ public class SQLiteTest {
         final String query2 = "INSERT INTO questions ( QUESTION, ANSWER ) "
                 + "VALUES ( 'This statement is false', 'paradox' )";
 
-        try (Connection conn = ds.getConnection() ;
-                Statement stmt = conn.createStatement() ;) {
-            int rv = stmt.executeUpdate(query1);
-            System.out.println("1st executeUpdate() returned " + rv);
+        try (Connection conn = dataSource.getConnection();
+                Statement stmt = conn.createStatement();) {
+            int returnValue = stmt.executeUpdate(query1);
+            System.out.println("1st executeUpdate() returned " + returnValue);
 
-            rv = stmt.executeUpdate(query2);
-            System.out.println("2nd executeUpdate() returned " + rv);
+            returnValue = stmt.executeUpdate(query2);
+            System.out.println("2nd executeUpdate() returned " + returnValue);
 
         } catch (final SQLException e) {
             e.printStackTrace();
@@ -68,16 +79,16 @@ public class SQLiteTest {
         System.out.println("Selecting all rows from test table");
         query = "SELECT * FROM questions";
 
-        try (Connection conn = ds.getConnection() ;
-                Statement stmt = conn.createStatement() ;) {
+        try (Connection conn = dataSource.getConnection();
+                Statement stmt = conn.createStatement();) {
 
-            final ResultSet rs = stmt.executeQuery(query);
+            final ResultSet resultSet = stmt.executeQuery(query);
 
             // walk through each 'row' of results, grab data by column/field name
             // and print it
-            while (rs.next()) {
-                final String question = rs.getString("QUESTION");
-                final String answer = rs.getString("ANSWER");
+            while (resultSet.next()) {
+                final String question = resultSet.getString("QUESTION");
+                final String answer = resultSet.getString("ANSWER");
 
                 System.out.println("Result: Question = " + question + ", Answer = " + answer);
             }

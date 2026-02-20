@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -7,7 +8,9 @@ import java.util.Arrays;
  * @author peytonlaudanski
  * @version 1
  */
-public class TriviaMaze {
+public class TriviaMaze implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 

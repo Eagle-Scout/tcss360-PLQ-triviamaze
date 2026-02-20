@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
@@ -9,7 +10,9 @@ import java.util.Map;
  * @author peytonlaudanski
  * @version 1
  */
-public class TriviaRoom {
+public class TriviaRoom implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 

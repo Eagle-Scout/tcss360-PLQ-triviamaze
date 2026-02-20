@@ -1,28 +1,28 @@
 package control;
 
-import model.TriviaRoom;
+import java.io.Serializable;
+
+import model.Player;
+import model.TriviaMaze;
 
 /**
  * 
  * @author peytonlaudanski
  * @version 1
  */
-public class GameState {
+public class GameState implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 
      */
-    private int myX;
+    private Player myPlayer;
 
     /**
      * 
      */
-    private int myY;
-
-    /**
-     * 
-     */
-    private TriviaRoom[][] myRooms;
+    private TriviaMaze myMaze;
 
     /**
      * 
@@ -30,58 +30,43 @@ public class GameState {
      * @param theY
      * @param theDoors
      */
-    public GameState(final int theX, final int theY, final TriviaRoom[][] theRooms) {
-        setX(theX);
-        setY(theY);
-        setRooms(theRooms);
+    public GameState(final Player thePlayer, final TriviaMaze theMaze) {
+
+        setPlayer(thePlayer);
+        setMaze(theMaze);
     }
 
     /**
      * 
      * @return
      */
-    public int getMyX() {
-        return myX;
+    public TriviaMaze getMaze() {
+        return myMaze;
     }
 
     /**
      * 
-     * @param theX
+     * @param theMaze
      */
-    private void setX(final int theX) {
-        myX = theX;
-    }
+    private void setMaze(final TriviaMaze theMaze) {
 
-    /**
-     * 
-     * @return
-     */
-    public int getMyY() {
-        return myY;
-    }
-
-    /**
-     * 
-     * @param theY
-     */
-    private void setY(final int theY) {
-        myY = theY;
+        myMaze = theMaze;
     }
 
     /**
      * 
      * @return
      */
-    public TriviaRoom[][] getRooms() {
-        return myRooms.clone();
+    public Player getPlayer() {
+        return myPlayer;
     }
 
     /**
      * 
-     * @param theDoors
+     * @param thePlayer
      */
-    private void setRooms(final TriviaRoom[][] theRooms) {
-        myRooms = theRooms;
+    private void setPlayer(final Player thePlayer) {
+        myPlayer = thePlayer;
     }
 
 }

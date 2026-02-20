@@ -1,11 +1,15 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author peytonlaudanski
  * @version 1
  */
-public class TriviaDoor {
+public class TriviaDoor implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 
@@ -39,6 +43,7 @@ public class TriviaDoor {
      * @return
      */
     public boolean isLocked() {
+
         return myLocked;
     }
 
