@@ -44,6 +44,10 @@ public class TriviaDoor implements Serializable {
         myState = DoorState.OPEN;
     }
 
+    /**
+     * 
+     * @return
+     */
     public DoorState getState() {
         return myState;
     }

@@ -106,8 +106,8 @@ public final class QuestionFactory {
          * @param theCorrectIndex
          */
         public MultipleChoiceData(final List<String> theChoices, final int theCorrectIndex) {
-            this.myChoices = theChoices;
-            this.myCorrectIndex = theCorrectIndex;
+            myChoices = theChoices;
+            myCorrectIndex = theCorrectIndex;
         }
 
         /**

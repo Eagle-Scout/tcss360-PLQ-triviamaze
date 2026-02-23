@@ -25,9 +25,26 @@ public class TriviaMaze implements Serializable {
     /**
      * 
      */
-    public TriviaMaze(final TriviaRoom[][] theRooms, final Player thePlayer) {
+    private final int myExitX;
+
+    /**
+     * 
+     */
+    private final int myExitY;
+
+    /**
+     * 
+     * @param theRooms
+     * @param thePlayer
+     * @param theExitX
+     * @param theExitY
+     */
+    public TriviaMaze(final TriviaRoom[][] theRooms, final Player thePlayer,
+            final int theExitX, final int theExitY) {
         myRooms = Arrays.copyOf(theRooms, theRooms.length);
         myPlayer = thePlayer;
+        myExitX = theExitX;
+        myExitY = theExitY;
 
     }
 
@@ -68,7 +85,22 @@ public class TriviaMaze implements Serializable {
         if (next != null && next.getDoor(theDir.opposite()) != null) {
             myPlayer.move(theDir);
 
+            if (isExit()) {
+
+                // win condition
+                System.out.println("you win");
+            }
         }
+
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public boolean isExit() {
+
+        return myPlayer.getX() == myExitX && myPlayer.getY() == myExitY;
 
     }
 

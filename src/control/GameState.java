@@ -26,9 +26,8 @@ public class GameState implements Serializable {
 
     /**
      * 
-     * @param theX
-     * @param theY
-     * @param theDoors
+     * @param thePlayer
+     * @param theMaze
      */
     public GameState(final Player thePlayer, final TriviaMaze theMaze) {
 

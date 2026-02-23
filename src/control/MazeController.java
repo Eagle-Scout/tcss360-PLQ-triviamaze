@@ -28,23 +28,27 @@ public class MazeController {
     /**
      * 
      */
-    private MazeView myView;
+    private Player myPlayer;
 
     /**
      * 
      * @param theMaze
      * @param theView
      */
-    public MazeController(final TriviaMaze theMaze, final MazeView theView) {
+    public MazeController(final TriviaMaze theMaze, final Player thePlayer) {
         setMaze(theMaze);
-        setView(theView);
+        setPlayer(thePlayer);
     }
 
     /**
      * 
      */
     public void saveGame() {
+        final GameState gameState = new GameState(getPlayer(), getMaze());
 
+        final GameCaretaker caretaker = new GameCaretaker(gameState);
+
+        caretaker.save();
     }
 
     /**
@@ -52,14 +56,15 @@ public class MazeController {
      */
     public void loadGame() {
 
-    }
+        GameState gameState = new GameState(null, null);
 
-    /**
-     * 
-     * @param theView
-     */
-    private void setView(final MazeView theView) {
-        myView = theView;
+        final GameCaretaker caretaker = new GameCaretaker(gameState);
+
+        gameState = caretaker.load();
+
+        setMaze(gameState.getMaze());
+        setPlayer(gameState.getPlayer());
+
     }
 
     /**
@@ -72,17 +77,25 @@ public class MazeController {
 
     /**
      * 
-     * @return
+     * @param thePlayer
      */
-    public MazeView getMyView() {
-        return myView;
+    private void setPlayer(final Player thePlayer) {
+        myPlayer = thePlayer;
     }
 
     /**
      * 
      * @return
      */
-    public TriviaMaze getMyMaze() {
+    public Player getPlayer() {
+        return myPlayer;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public TriviaMaze getMaze() {
         return myMaze;
     }
 
@@ -91,13 +104,16 @@ public class MazeController {
      * @param theArgs
      */
     public static void main(final String[] theArgs) {
+
+        final MazeView view = new MazeView();
+
         testMain();
 
     }
 
-    // ai generated test method, uncomment method to test pretty much everything. not
-    // completely up to date, since it doesnt take into account triviamaze/attemptmove
-
+    /**
+     * ai generated test method, uncomment method to test pretty much everything.
+     */
     public static void testMain() {
         System.out.println("=== TRIVIA MAZE TEST (UPDATED) ===\n");
 
@@ -143,13 +159,12 @@ public class MazeController {
         final TriviaRoom[][] rooms = {{room00, room10}, {room01, room11}};
 
         Player player = new Player(0, 0);
-        TriviaMaze maze = new TriviaMaze(rooms, player);
+        TriviaMaze maze = new TriviaMaze(rooms, player, 1, 1);
 
         // ========= TEST 1: Correct answer allows movement =========
         System.out.println("--- Test: Correct answer allows movement ---");
 
-        final AbstractTriviaQuestion q =
-                maze.getCurrentRoom().getDoor(Direction.SOUTH).getQuestion();
+        final AbstractTriviaQuestion q = maze.getCurrentRoom().getQuestion(Direction.SOUTH);
 
         final boolean correct = q.checkAnswer("Paris");
         maze.attemptMove(Direction.SOUTH, correct);
@@ -162,10 +177,10 @@ public class MazeController {
         System.out.println("--- Test: Wrong answer locks door ---");
 
         player = new Player(0, 0);
-        maze = new TriviaMaze(rooms, player);
+        maze = new TriviaMaze(rooms, player, 1, 1);
 
         final AbstractTriviaQuestion qWrong =
-                maze.getCurrentRoom().getDoor(Direction.SOUTH).getQuestion();
+                maze.getCurrentRoom().getQuestion(Direction.SOUTH);
 
         final boolean wrong = qWrong.checkAnswer("Rome");
         maze.attemptMove(Direction.SOUTH, wrong);
@@ -177,4 +192,5 @@ public class MazeController {
 
         System.out.println("=== TESTS COMPLETE ===");
     }
+
 }
