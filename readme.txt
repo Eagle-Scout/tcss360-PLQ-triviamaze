@@ -1,6 +1,6 @@
 TCSS 360 TRIVIA MAZE  
 
-ITERATION 3  
+ITERATION 4  
 
 Peyton Laudanski:  
 Similar issues to last week, overhauled the QuestionFactory, properly 
