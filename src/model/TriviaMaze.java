@@ -61,10 +61,11 @@ public class TriviaMaze implements Serializable {
             final TriviaDoor door = current.getDoor(theDir);
 
             if (theBool) {
-                door.open();
+                door.setState(DoorState.OPEN);
+
                 movePlayer(theDir);
             } else {
-                door.lock();
+                door.setState(DoorState.LOCKED);
             }
             // } else {
             // System.out.println("no door that way");

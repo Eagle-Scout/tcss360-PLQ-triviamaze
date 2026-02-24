@@ -14,7 +14,7 @@ public class TriviaDoor implements Serializable {
     /**
      * 
      */
-    private final AbstractTriviaQuestion myQuestion;
+    private AbstractTriviaQuestion myQuestion;
 
     /**
      * 
@@ -32,22 +32,6 @@ public class TriviaDoor implements Serializable {
 
     /**
      * 
-     */
-    public void lock() {
-        myState = DoorState.LOCKED;
-
-    }
-
-    /**
-     * 
-     */
-    public void open() {
-        myState = DoorState.OPEN;
-
-    }
-
-    /**
-     * 
      * @return
      */
     public DoorState getState() {
@@ -56,10 +40,26 @@ public class TriviaDoor implements Serializable {
 
     /**
      * 
+     * @param theState
+     */
+    public void setState(final DoorState theState) {
+        myState = theState;
+    }
+
+    /**
+     * 
      * @return
      */
     public AbstractTriviaQuestion getQuestion() {
         return myQuestion;
+    }
+
+    /**
+     * 
+     * @param theQuestion
+     */
+    public void setQuestion(final AbstractTriviaQuestion theQuestion) {
+        myQuestion = theQuestion;
     }
 
 }

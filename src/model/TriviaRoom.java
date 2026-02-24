@@ -28,6 +28,7 @@ public class TriviaRoom implements Serializable {
             throw new IllegalArgumentException("Room must have at least one door");
         }
         myDoors = new EnumMap<>(theDoors);
+
     }
 
     /**
@@ -38,6 +39,15 @@ public class TriviaRoom implements Serializable {
     public TriviaDoor getDoor(final Direction theDir) {
 
         return myDoors.get(theDir);
+    }
+
+    /**
+     * 
+     * @param theDir
+     * @param theDoor
+     */
+    public void addDoor(final Direction theDir, final TriviaDoor theDoor) {
+        myDoors.put(theDir, theDoor);
     }
 
     /**

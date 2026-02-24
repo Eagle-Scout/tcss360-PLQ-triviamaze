@@ -11,7 +11,6 @@ import model.QuestionFactory;
 import model.TriviaDoor;
 import model.TriviaMaze;
 import model.TriviaRoom;
-import view.MazeView;
 
 /**
  * 
@@ -105,7 +104,7 @@ public class MazeController {
      */
     public static void main(final String[] theArgs) {
 
-        final MazeView view = new MazeView();
+        // final MazeView view = new MazeView();
 
         testMain();
 
