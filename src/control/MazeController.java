@@ -183,6 +183,7 @@ public class MazeController {
                 maze.getCurrentRoom().getQuestion(Direction.SOUTH);
 
         final boolean wrong = qWrong.checkAnswer("Rome");
+
         maze.attemptMove(Direction.SOUTH, wrong);
 
         final TriviaDoor door = maze.getCurrentRoom().getDoor(Direction.SOUTH);

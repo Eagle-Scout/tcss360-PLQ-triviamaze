@@ -35,6 +35,7 @@ public class TriviaDoor implements Serializable {
      */
     public void lock() {
         myState = DoorState.LOCKED;
+
     }
 
     /**
@@ -42,6 +43,7 @@ public class TriviaDoor implements Serializable {
      */
     public void open() {
         myState = DoorState.OPEN;
+
     }
 
     /**
