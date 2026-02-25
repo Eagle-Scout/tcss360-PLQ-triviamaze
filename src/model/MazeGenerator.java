@@ -83,7 +83,6 @@ public class MazeGenerator {
             final boolean[][] theVisitedRooms) {
 
         theVisitedRooms[theY][theX] = true;
-        final double probablility = 0.8;
 
         final List<Direction> dirs = Arrays.asList(Direction.values());
         Collections.shuffle(dirs);
@@ -101,9 +100,8 @@ public class MazeGenerator {
                 theRooms[theY][theX].addDoor(dir, sharedDoor);
                 theRooms[newY][newX].addDoor(dir.opposite(), sharedDoor);
 
-                if (Math.random() < probablility) {
-                    carveMaze(newX, newY, theRooms, theVisitedRooms);
-                }
+                carveMaze(newX, newY, theRooms, theVisitedRooms);
+
             }
         }
         addMoreDoors(theRooms);
