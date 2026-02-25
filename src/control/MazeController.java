@@ -1,6 +1,5 @@
 package control;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 import model.AbstractTriviaQuestion;
@@ -106,7 +105,15 @@ public class MazeController {
 
         // final MazeView view = new MazeView();
 
-        testMain();
+        final QuestionFactory factory = new QuestionFactory();
+
+        // personal check for if mcquestion logic is correct
+
+        final AbstractTriviaQuestion q3 = factory.createQuestion("MCQuestion",
+                "What is 2 + 2?", 3, new QuestionFactory.MultipleChoiceData("3, 4, 5", 1));
+        System.out.println(q3.checkAnswer("4"));
+
+        // testMain();
 
     }
 
@@ -126,8 +133,7 @@ public class MazeController {
                 factory.createQuestion("TFQuestion", "The Earth is flat", 2, false);
 
         final AbstractTriviaQuestion q3 = factory.createQuestion("MCQuestion",
-                "What is 2 + 2?", 3,
-                new QuestionFactory.MultipleChoiceData(Arrays.asList("3", "4", "5"), 1));
+                "What is 2 + 2?", 3, new QuestionFactory.MultipleChoiceData("3, 4, 5", 1));
 
         // ========= CREATE ROOMS =========
 
