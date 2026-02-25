@@ -21,14 +21,14 @@ public class MultipleChoiceQuestion extends AbstractTriviaQuestion {
 
     /**
      * 
-     * @param thePrompt
+     * @param theQuestion
      * @param theID
      * @param theChoices
      * @param theIndex
      */
-    public MultipleChoiceQuestion(final String thePrompt, final int theID,
+    public MultipleChoiceQuestion(final String theQuestion, final int theID,
             final List<String> theChoices, final int theIndex) {
-        super(thePrompt, theID);
+        super(theQuestion, theID);
         setChoices(theChoices);
         setIndex(theIndex);
     }

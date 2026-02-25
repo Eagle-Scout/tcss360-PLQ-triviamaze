@@ -50,12 +50,12 @@ public class MazeGenerator {
      */
     public TriviaMaze generateMaze(final Player thePlayer, final int theExitX,
             final int theExitY) {
+
         final TriviaRoom[][] rooms = createEmptyRooms();
 
         carveMaze(0, 0, rooms, new boolean[myHeight][myWidth]);
 
         return new TriviaMaze(rooms, thePlayer, theExitX, theExitY);
-
     }
 
     /**

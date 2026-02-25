@@ -15,15 +15,15 @@ public abstract class AbstractTriviaQuestion {
     /**
      * 
      */
-    private String myPrompt;
+    private String myQuestion;
 
     /**
      * 
-     * @param thePrompt
+     * @param theQuestion
      * @param theID
      */
-    public AbstractTriviaQuestion(final String thePrompt, final int theID) {
-        setPrompt(thePrompt);
+    public AbstractTriviaQuestion(final String theQuestion, final int theID) {
+        setQuestion(theQuestion);
         setID(theID);
     }
 
@@ -36,10 +36,10 @@ public abstract class AbstractTriviaQuestion {
 
     /**
      * 
-     * @param thePrompt
+     * @param theQuestion
      */
-    private void setPrompt(final String thePrompt) {
-        this.myPrompt = thePrompt;
+    private void setQuestion(final String theQuestion) {
+        myQuestion = theQuestion;
     }
 
     /**
@@ -47,15 +47,15 @@ public abstract class AbstractTriviaQuestion {
      * @param theID
      */
     private void setID(final int theID) {
-        this.myID = theID;
+        myID = theID;
     }
 
     /**
      * 
      * @return
      */
-    public String getPrompt() {
-        return myPrompt;
+    public String getQuestion() {
+        return myQuestion;
     }
 
     /**

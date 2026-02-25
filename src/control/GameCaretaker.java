@@ -33,7 +33,6 @@ public class GameCaretaker implements Serializable {
      */
     public GameCaretaker(final GameState theGame) {
         setGame(theGame);
-
     }
 
     /**

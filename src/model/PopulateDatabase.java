@@ -8,16 +8,17 @@ import java.sql.Statement;
 import org.sqlite.SQLiteDataSource;
 
 /**
+ * USE THIS CLASS TO POPULATE THE DATABASE WITH QUESTIONS AND ANSWERS.
  *
  * @author peytonlaudanski
  * @version 1
  */
-public final class SQLite {
+public final class PopulateDatabase {
 
     /**
      * 
      */
-    private SQLite() {
+    private PopulateDatabase() {
 
     }
 

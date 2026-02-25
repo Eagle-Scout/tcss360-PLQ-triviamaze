@@ -15,22 +15,22 @@ public class TriviaMaze implements Serializable {
     /**
      * 
      */
-    private final TriviaRoom[][] myRooms;
+    private TriviaRoom[][] myRooms;
 
     /**
      * 
      */
-    private final Player myPlayer;
+    private Player myPlayer;
 
     /**
      * 
      */
-    private final int myExitX;
+    private int myExitX;
 
     /**
      * 
      */
-    private final int myExitY;
+    private int myExitY;
 
     /**
      * 
@@ -41,10 +41,9 @@ public class TriviaMaze implements Serializable {
      */
     public TriviaMaze(final TriviaRoom[][] theRooms, final Player thePlayer,
             final int theExitX, final int theExitY) {
-        myRooms = Arrays.copyOf(theRooms, theRooms.length);
-        myPlayer = thePlayer;
-        myExitX = theExitX;
-        myExitY = theExitY;
+        setRooms(theRooms);
+        setPlayer(thePlayer);
+        setExit(theExitX, theExitY);
 
     }
 
@@ -130,6 +129,40 @@ public class TriviaMaze implements Serializable {
 
     /**
      * 
+     * @param thePlayer
+     */
+    private void setPlayer(final Player thePlayer) {
+        myPlayer = thePlayer;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Player getPlayer() {
+        return myPlayer;
+    }
+
+    /**
+     * 
+     * @param theExitX
+     * @param theExitY
+     */
+    private void setExit(final int theExitX, final int theExitY) {
+        myExitX = theExitX;
+        myExitY = theExitY;
+    }
+
+    /**
+     * 
+     * @param theRooms
+     */
+    private void setRooms(final TriviaRoom[][] theRooms) {
+        myRooms = Arrays.copyOf(theRooms, theRooms.length);
+    }
+
+    /**
+     * 
      * @return
      */
     public TriviaRoom[][] getRooms() {
@@ -140,14 +173,6 @@ public class TriviaMaze implements Serializable {
         }
         return copy;
 
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public Player getPlayer() {
-        return myPlayer;
     }
 
 }

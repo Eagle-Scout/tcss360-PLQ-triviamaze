@@ -15,7 +15,7 @@ public class MazeView {
      * 
      */
     public MazeView() {
-
+        // todo
     }
 
     /**
@@ -23,7 +23,7 @@ public class MazeView {
      * @param theMaze
      */
     public void displayMaze(final TriviaMaze theMaze) {
-
+        // todo
     }
 
     /**
@@ -31,7 +31,7 @@ public class MazeView {
      * @param theRoom
      */
     public void displayRoom(final TriviaRoom theRoom) {
-
+        // todo
     }
 
     /**
@@ -39,7 +39,7 @@ public class MazeView {
      * @param theQuestion
      */
     public void displayQuestion(final AbstractTriviaQuestion theQuestion) {
-
+        // todo
     }
 
     /**
@@ -47,6 +47,6 @@ public class MazeView {
      * @param theString
      */
     public void showMessage(final String theString) {
-
+        // todo
     }
 }

@@ -25,6 +25,8 @@ public final class QuestionFactory {
      * 
      */
     public QuestionFactory() {
+        // intentionally empty to create questions with tester method, unsure if will remain
+        // public when SQL database is populated and we start moving forward
     }
 
     /**
@@ -41,12 +43,13 @@ public final class QuestionFactory {
         AbstractTriviaQuestion question = null;
 
         if ("MCQuestion".equals(theType)) {
-
             final MultipleChoiceData mcData = (MultipleChoiceData) theData;
             question = new MultipleChoiceQuestion(thePrompt, theID, mcData.getChoices(),
                     mcData.getCorrectIndex());
+
         } else if ("SQuestion".equals(theType)) {
             question = new ShortQuestion(thePrompt, theID, (String) theData);
+
         } else if ("TFQuestion".equals(theType)) {
             question = new TrueFalseQuestion(thePrompt, theID, (boolean) theData);
         }
@@ -60,7 +63,6 @@ public final class QuestionFactory {
      */
     public static AbstractTriviaQuestion getQuestion() {
         myQuestionID++;
-
         return myQuestions.get(myQuestionID);
     }
 

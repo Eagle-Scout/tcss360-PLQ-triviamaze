@@ -10,16 +10,17 @@ public class TrueFalseQuestion extends AbstractTriviaQuestion {
     /**
      * 
      */
-    private boolean myCorrectAnswer;
+    private boolean myAnswer;
 
     /**
      * 
-     * @param thePrompt
+     * @param theQuestion
      * @param theID
      * @param theBool
      */
-    public TrueFalseQuestion(final String thePrompt, final int theID, final boolean theBool) {
-        super(thePrompt, theID);
+    public TrueFalseQuestion(final String theQuestion, final int theID,
+            final boolean theBool) {
+        super(theQuestion, theID);
         setCorrect(theBool);
     }
 
@@ -29,7 +30,7 @@ public class TrueFalseQuestion extends AbstractTriviaQuestion {
     @Override
     public boolean checkAnswer(final String theAnswer) {
 
-        return theAnswer.equals(String.valueOf(myCorrectAnswer));
+        return theAnswer.equals(String.valueOf(myAnswer));
     }
 
     /**
@@ -37,15 +38,15 @@ public class TrueFalseQuestion extends AbstractTriviaQuestion {
      * @return
      */
     public boolean isCorrect() {
-        return myCorrectAnswer;
+        return myAnswer;
     }
 
     /**
      * 
-     * @param theBool
+     * @param theAnswer
      */
-    private void setCorrect(final boolean theBool) {
-        myCorrectAnswer = theBool;
+    private void setCorrect(final boolean theAnswer) {
+        myAnswer = theAnswer;
     }
 
 }

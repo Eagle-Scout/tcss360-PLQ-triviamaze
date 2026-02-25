@@ -14,12 +14,12 @@ public class ShortQuestion extends AbstractTriviaQuestion {
 
     /**
      * 
-     * @param thePrompt
+     * @param theQuestion
      * @param theID
      * @param theAnswer
      */
-    public ShortQuestion(final String thePrompt, final int theID, final String theAnswer) {
-        super(thePrompt, theID);
+    public ShortQuestion(final String theQuestion, final int theID, final String theAnswer) {
+        super(theQuestion, theID);
         setAnswer(theAnswer);
     }
 
