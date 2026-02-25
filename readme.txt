@@ -15,5 +15,4 @@ discussions and coordinated with the team via Discord.
 
 
 Huy Le:  
-No major issues this iteration, except I made sure not to overwrite my teammates' code,
-so I kept my previous code locally as a backup while rebuilding my work using the updated main branch.
+No major issues this iteration. Worked on GUI improvements and ran tests to ensure functionality and address any errors.
