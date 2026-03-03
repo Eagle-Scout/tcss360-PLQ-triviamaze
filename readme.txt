@@ -12,4 +12,4 @@ discussions and coordinated with the team via Discord.
 
 
 Huy Le:  
-No major issues this iteration. Worked on GUI improvements and ran tests to ensure functionality and address any errors.
+I updated the GUI so it now follows MVC principles, removing all direct model access and routing interactions through the controller.
