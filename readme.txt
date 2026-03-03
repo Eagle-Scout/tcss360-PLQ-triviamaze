@@ -3,10 +3,7 @@ TCSS 360 TRIVIA MAZE
 ITERATION 4  
 
 Peyton Laudanski:  
-Similar issues to last week, overhauled the QuestionFactory, properly 
-implemented Serialization for load/save functions, and beginning work on 
-checking for if the player can reach the end room in a maze.
-
+Similar issues to last week, just a bunch of refactoring and team communication
 
 Quinn Weinzoff:  
 Reviewed/researched project requirements, helped define functionality, 
