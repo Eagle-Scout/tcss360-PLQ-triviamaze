@@ -1,0 +1,77 @@
+[33me6bef09[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mHuyLe[m[33m, [m[1;31morigin/HuyLe[m[33m)[m Place MazeView.java correctly in src/view
+[33m9528fc7[m / Added Help menu + direction filtering based on room doors in MazeView.java
+[33m0dc7d1c[m[33m ([m[1;32mtmp[m[33m)[m updated shortquestion
+[33m347630d[m updated MazeGenerator
+[33m15f1393[m[33m ([m[1;31morigin/main[m[33m)[m Update readme.txt
+[33mab02c57[m updated readme
+[33ma74c00c[m file tinkering
+[33meb99b83[m huge refactoring changes
+[33mfecfffa[m Fix GUI to strict MVC, restored styling, integrated DB questions with GPT's assistance
+[33m0229443[m[33m ([m[1;31morigin/Tru-Ishida-Test[m[33m)[m Add files via upload
+[33m487b33a[m Update GUI launch logic
+[33m4504f7e[m started doing sql work
+[33m0165faf[m moved class into control package
+[33m9891f08[m project refactoring
+[33mfaccb12[m Merge branch 'main' of https://github.com/Eagle-Scout/tcss360-PLQ-triviamaze
+[33mf4d087b[m changed MazeGenerator
+[33mdbe73bd[m Update readme.txt
+[33m5374f15[m implemented MazeGeneration
+[33mef2e1de[m fixed major error
+[33m8fd38d1[m small update
+[33m34b23e0[m updated gitignore
+[33m674412d[m updated readme
+[33m78e3cca[m updated readme
+[33m6fd134e[m updated project to better save and load
+[33m4497d50[m updated ai test method
+[33m5f9b04c[m implemented serialization
+[33m80f9047[m implemented DoorState
+[33ma34c8b5[m simplified questionFactory
+[33mfff1936[m added sqlite
+[33m61b5ec0[m updated readme
+[33m50dae6f[m Update readme.txt
+[33m6a86b07[m Add files via upload
+[33mc5f86bf[m added ai tester method
+[33md5f1ae2[m door movement and locking
+[33m128cd52[m project wide fixes & documentation
+[33m6afe067[m implemented QuestionFactory
+[33m70a5422[m updated readme
+[33m80537e7[m updated readme
+[33m6be5662[m updated readme
+[33m3a269da[m Update readme.txt
+[33m2061f59[m tested method calls
+[33mc9a0bbd[m project files
+[33m73d4058[m test push worked
+[33mff0d036[m test push
+[33m44c1d20[m Merge branch 'main' of https://github.com/Eagle-Scout/tcss360-PLQ-triviamaze
+[33md05e583[m removed files
+[33m8b798ba[m update gitignore
+[33m5271d9a[m Update .gitignore
+[33m052324e[m update .gitignore
+[33m6ad6f64[m Delete .DS_Store
+[33m53938e7[m removed redundant files
+[33m259775f[m committing bunch of files
+[33mc994312[m update files
+[33med06cca[m TriviaMaze, TriviaDoor
+[33m4ae196c[m additional changes
+[33m0894bf5[m Made additional changes
+[33mb8a02f8[m more changes
+[33m6353a78[m major overhaul of file structure
+[33m0f93d58[m readme.txt
+[33m4570f7f[m Update readme.txt
+[33ma77a72e[m fixed file structure, hopefully nothing breaks xd
+[33m058e6b4[m Delete Untitled 2
+[33m7f8ee78[m additional testing
+[33m4fdcd0f[m Delete .DS_Store
+[33m389d896[m deleted redundant files
+[33m10fa084[m deleted files
+[33m91ad7a5[m merged branches (hopefully)
+[33mb19cb05[m added branch and test file
+[33m4b10ce6[m deleted test file
+[33mb3c36a9[m Add initial test file with testing content
+[33ma467155[m push/pull to familiarize with git and eclipse
+[33m6763ed9[m testing things
+[33m1b7bcf2[m added new readme that isnt readme.md
+[33me9acc91[m deleted stuff
+[33m1010390[m Add files via upload
+[33m2ee25e8[m initialized project layout
+[33mc30ed1c[m Initial commit
