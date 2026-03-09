@@ -170,7 +170,7 @@ public class MazeController {
     public void restartGame() {
         new QuestionFactory();
 
-        final int size = 4;
+        final int size = 6;
         final Player player = new Player(0, 0);
         final MazeGenerator gen = new MazeGenerator(size, size);
         final TriviaMaze maze = gen.generateMaze(player, size - 1, size - 1);
@@ -188,7 +188,7 @@ public class MazeController {
      * 
      */
     public void endGame() {
-        // empty for now, use instead of system.exit maybe
+        System.out.println("just hit alt + f4 atp its not ready yet");
     }
 
     /* ================= GETTERS / SETTERS ================= */
@@ -233,7 +233,7 @@ public class MazeController {
     public static void launchGUI() {
         new QuestionFactory();
 
-        final int size = 3;
+        final int size = 5;
         final Player player = new Player(0, 0);
         final MazeGenerator gen = new MazeGenerator(size, size);
         final TriviaMaze maze = gen.generateMaze(player, size - 1, size - 1);

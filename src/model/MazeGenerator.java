@@ -108,7 +108,6 @@ public class MazeGenerator {
      */
     private void addMoreDoors(final TriviaRoom[][] theRooms) {
         final double probability = 0.005;
-        final double random = Math.random();
 
         for (int row = 0; row < theRooms.length; row++) {
             final List<Direction> dirs = Arrays.asList(Direction.values());
@@ -119,6 +118,7 @@ public class MazeGenerator {
                 for (final Direction dir : dirs) {
                     final int nextRow = row + dir.getDY();
                     final int nextCol = col + dir.getDX();
+                    final double random = Math.random();
 
                     if (inBounds(nextCol, nextRow) && !theRooms[row][col].hasDoor(dir)
                             && random < probability) {
