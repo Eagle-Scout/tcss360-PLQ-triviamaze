@@ -62,37 +62,33 @@ public final class PopulateDatabase {
         }
 
         final String[][] shortQ = {{"Last name of the Java creator?", "Gosling"},
-                                   {"What planet is closest to the Sun?", "Mercury"},
-                                   {"How many sides does a hexagon have?", "6"},
-                                   {"What is the chemical symbol for water?", "H2O"},
-                                   {"What country has the largest population?", "China"},
-                                   {"How many players on a basketball team?", "5"},
-                                   {"What is 12 multiplied by 12?", "144"},
-                                   {"What is the capital of Japan?", "Tokyo"},};
+            {"What planet is closest to the Sun?", "Mercury"},
+            {"How many sides does a hexagon have?", "6"},
+            {"What is the chemical symbol for water?", "H2O"},
+            {"What country has the largest population?", "China"},
+            {"How many players on a basketball team?", "5"},
+            {"What is 12 multiplied by 12?", "144"},
+            {"What is the capital of Japan?", "Tokyo"}};
 
-        final String[][] tfQ =
-                {{"The Great Wall of China is visible from space.", "false"},
-                 {"The Earth orbits the Sun.", "true"}, {"Spiders are insects.", "false"},
-                 {"Water boils at 100 degrees Celsius.", "true"},
-                 {"The Amazon is the longest river in the world.", "false"},
-                 {"Humans have 206 bones.", "true"},
-                 {"Sound travels faster than light.", "false"},
-                 {"A group of crows is called a murder.", "true"},};
+        final String[][] tfQ = {{"The Great Wall of China is visible from space.", "false"},
+            {"The Earth orbits the Sun.", "true"}, {"Spiders are insects.", "false"},
+            {"Water boils at 100 degrees Celsius.", "true"},
+            {"The Amazon is the longest river in the world.", "false"},
+            {"Humans have 206 bones.", "true"}, {"Sound travels faster than light.", "false"},
+            {"A group of crows is called a murder.", "true"}};
 
         // Format: { question, correct answer, "choice1|choice2|choice3|choice4" }
         // Correct answer must match one of the pipe-separated choices exactly.
-        final String[][] mcQ =
-                {{"What is 2 + 2?", "4", "3|4|5|6"},
-                 {"Which planet is known as the Red Planet?", "Mars",
-                  "Venus|Mars|Jupiter|Saturn"},
-                 {"What is the capital of France?", "Paris", "London|Berlin|Paris|Rome"},
-                 {"Which language is Java most similar to?", "C++", "Python|C++|Ruby|Swift"},
-                 {"How many bytes are in a kilobyte?", "1024", "512|1024|2048|4096"},
-                 {"Who painted the Mona Lisa?", "Leonardo da Vinci",
-                  "Michelangelo|Raphael|Leonardo da Vinci|Donatello"},
-                 {"What is the largest ocean on Earth?", "Pacific",
-                  "Atlantic|Indian|Pacific|Arctic"},
-                 {"Which data structure uses LIFO order?", "Stack", "Queue|Stack|List|Tree"},};
+        final String[][] mcQ = {{"What is 2 + 2?", "4", "3|4|5|6"},
+            {"Which planet is known as the Red Planet?", "Mars", "Venus|Mars|Jupiter|Saturn"},
+            {"What is the capital of France?", "Paris", "London|Berlin|Paris|Rome"},
+            {"Which language is Java most similar to?", "C++", "Python|C++|Ruby|Swift"},
+            {"How many bytes are in a kilobyte?", "1024", "512|1024|2048|4096"},
+            {"Who painted the Mona Lisa?", "Leonardo da Vinci",
+                "Michelangelo|Raphael|Leonardo da Vinci|Donatello"},
+            {"What is the largest ocean on Earth?", "Pacific",
+                "Atlantic|Indian|Pacific|Arctic"},
+            {"Which data structure uses LIFO order?", "Stack", "Queue|Stack|List|Tree"}};
 
         try (Connection conn = dataSource.getConnection();
                 Statement stmt = conn.createStatement()) {

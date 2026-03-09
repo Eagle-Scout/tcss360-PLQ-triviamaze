@@ -92,8 +92,8 @@ public class MazeGenerator {
             if (inBounds(newX, newY) && !theVisitedRooms[newY][newX]) {
                 // Fixed: Create a fresh door for each passage so state changes only affect the
                 // one door, not every door in the maze.
-                final TriviaDoor door =
-                        new TriviaDoor(QuestionFactory.getQuestion(), DoorState.CLOSED);
+                final TriviaDoor door
+                    = new TriviaDoor(QuestionFactory.getQuestion(), DoorState.CLOSED);
                 theRooms[theY][theX].addDoor(dir, door);
                 theRooms[newY][newX].addDoor(dir.opposite(), door);
                 carveMaze(newX, newY, theRooms, theVisitedRooms);
@@ -108,6 +108,7 @@ public class MazeGenerator {
      */
     private void addMoreDoors(final TriviaRoom[][] theRooms) {
         final double probability = 0.005;
+        final double random = Math.random();
 
         for (int row = 0; row < theRooms.length; row++) {
             final List<Direction> dirs = Arrays.asList(Direction.values());
@@ -120,10 +121,10 @@ public class MazeGenerator {
                     final int nextCol = col + dir.getDX();
 
                     if (inBounds(nextCol, nextRow) && !theRooms[row][col].hasDoor(dir)
-                            && Math.random() < probability) {
+                            && random < probability) {
                         // Fixed: Fresh door each time.
-                        final TriviaDoor door = new TriviaDoor(QuestionFactory.getQuestion(),
-                                DoorState.CLOSED);
+                        final TriviaDoor door
+                            = new TriviaDoor(QuestionFactory.getQuestion(), DoorState.CLOSED);
                         theRooms[row][col].addDoor(dir, door);
                         theRooms[nextRow][nextCol].addDoor(dir.opposite(), door);
                     }

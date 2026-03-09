@@ -151,14 +151,7 @@ public class MazeController {
      * @return
      */
     private boolean isPlayerTrapped() {
-        Boolean bool = true;
-        final TriviaRoom cur = myMaze.getCurrentRoom();
-        for (final Direction d : Direction.values()) {
-            if (cur.hasDoor(d) && cur.getDoor(d).getState() != DoorState.LOCKED && bool) {
-                bool = false;
-            }
-        }
-        return bool;
+        return !myMaze.canLeaveMaze();
     }
 
     /**
@@ -189,6 +182,13 @@ public class MazeController {
             pushMazeToView();
             myView.showMessage("🔄 New game started!", Color.CYAN);
         }
+    }
+
+    /**
+     * 
+     */
+    public void endGame() {
+        // empty for now, use instead of system.exit maybe
     }
 
     /* ================= GETTERS / SETTERS ================= */
@@ -233,7 +233,7 @@ public class MazeController {
     public static void launchGUI() {
         new QuestionFactory();
 
-        final int size = 5;
+        final int size = 3;
         final Player player = new Player(0, 0);
         final MazeGenerator gen = new MazeGenerator(size, size);
         final TriviaMaze maze = gen.generateMaze(player, size - 1, size - 1);
@@ -253,4 +253,5 @@ public class MazeController {
     public static void main(final String[] theArgs) {
         launchGUI();
     }
+
 }

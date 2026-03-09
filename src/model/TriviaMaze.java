@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 
@@ -66,8 +68,7 @@ public class TriviaMaze implements Serializable {
             } else {
                 door.setState(DoorState.LOCKED);
             }
-            // } else {
-            // System.out.println("no door that way");
+
         }
     }
 
@@ -91,6 +92,77 @@ public class TriviaMaze implements Serializable {
             }
         }
 
+    }
+
+    /**
+     * Checks whether the player can still reach the exit from the current room. DFS treats
+     * LOCKED doors as blocked, and OPEN/CLOSED doors as traversable because closed doors can
+     * still be answered and used.
+     * 
+     * @return true if a path to the exit still exists; false otherwise.
+     */
+    public boolean canLeaveMaze() {
+        return dfsExitSearch(myPlayer.getX(), myPlayer.getY(), new HashSet<>());
+    }
+
+    /**
+     * Depth-first search helper that checks if a valid path to the exit exists.
+     * 
+     * @param theX       current x position
+     * @param theY       current y position
+     * @param theVisited set of visited room coordinates
+     * @return true if the exit is reachable from this room
+     */
+    private boolean dfsExitSearch(final int theX, final int theY,
+            final Set<String> theVisited) {
+
+        boolean found = theX == myExitX && theY == myExitY;
+        final TriviaRoom current = getRoom(theY, theX);
+
+        if (!found && theVisited.add(theX + "," + theY) && current != null) {
+            found = searchNeighbors(current, theX, theY, theVisited);
+        }
+
+        return found;
+    }
+
+    /**
+     * 
+     * @param theCurrent
+     * @param theX
+     * @param theY
+     * @param theVisited
+     * @return
+     */
+    private boolean searchNeighbors(final TriviaRoom theCurrent, final int theX,
+            final int theY, final Set<String> theVisited) {
+        boolean found = false;
+        for (final Direction dir : Direction.values()) {
+            if (!found && isPassable(theCurrent, dir, theX, theY)) {
+                found = dfsExitSearch(theX + dir.getDX(), theY + dir.getDY(), theVisited);
+            }
+        }
+        return found;
+    }
+
+    /**
+     * 
+     * @param theRoom
+     * @param theDir
+     * @param theX
+     * @param theY
+     * @return
+     */
+    private boolean isPassable(final TriviaRoom theRoom, final Direction theDir,
+            final int theX, final int theY) {
+        boolean passable = false;
+        if (theRoom.hasDoor(theDir)) {
+            final TriviaDoor door = theRoom.getDoor(theDir);
+            final int nextX = theX + theDir.getDX();
+            final int nextY = theY + theDir.getDY();
+            passable = door.getState() != DoorState.LOCKED && getRoom(nextY, nextX) != null;
+        }
+        return passable;
     }
 
     /**
