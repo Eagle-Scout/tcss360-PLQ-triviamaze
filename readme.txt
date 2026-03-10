@@ -12,4 +12,4 @@ discussions and coordinated with the team via Discord.
 
 
 Huy Le:  
-I updated the GUI so it now follows MVC principles, removing all direct model access and routing interactions through the controller.
+I had trouble with github and it deletes previous commit on HuyLe's branch, but I noted the previous commits and this will be recorded in the final iteration.
