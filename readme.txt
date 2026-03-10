@@ -1,6 +1,6 @@
 TCSS 360 TRIVIA MAZE  
 
-ITERATION 4  
+ITERATION 6  
 
 Peyton Laudanski:  
 the biggest issue was sleep management. i spent a lot of time working late on the project,
