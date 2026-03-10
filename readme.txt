@@ -8,9 +8,8 @@ not out of any sense of urgency, but simply i enjoyed working on it and just did
 working. 
 
 Quinn Weinzoff:  
-Reviewed/researched project requirements, helped define functionality, 
-and contributed to drafting and refining the SRS. Participated in planning 
-discussions and coordinated with the team via Discord. 
+Worked on implementing and refining the door logic between rooms, making sure doors
+properly connect and function within the maze navigation system.
 
 
 Huy Le:  
