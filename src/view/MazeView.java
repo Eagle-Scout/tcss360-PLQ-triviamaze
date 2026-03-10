@@ -37,29 +37,23 @@ import model.TriviaRoom;
  */
 public final class MazeView extends JFrame {
 
+    private static final long serialVersionUID = 1L;
+
     /** Grid layout dimensions (rows x gap). */
-    static final Dimension GRID = new Dimension(3, 15);
-
-    /** Padding values. */
-    static final int[] PADDING = {10, 20, 30, 60};
-
-    /** Layout ratios. */
-    static final int[] RATIOS = {5, 4, 15};
+    private static final Dimension GRID = new Dimension(3, 15);
 
     /** Font name. */
-    static final String FONT = "Segoe UI";
+    private static final String FONT = "Segoe UI";
 
     /** Font sizes. */
-    static final int[] FONT_SIZES = {16, 18, 24};
+    private static final int[] FONT_SIZES = {16, 18, 24};
 
     /** Component dimensions. */
-    static final Dimension[] DIMENSIONS
+    private static final Dimension[] DIMENSIONS
         = {new Dimension(110, 70), new Dimension(200, 40), new Dimension(100, 40)};
 
     /** Closing tags shared by all HTML dialog strings. */
-    static final String HTML_CLOSE = "</div></html>";
-
-    private static final long serialVersionUID = 1L;
+    private static final String HTML_CLOSE = "</div></html>";
 
     /** Window dimensions. */
     private static final Dimension WINDOW = new Dimension(1150, 780);

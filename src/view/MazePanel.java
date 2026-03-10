@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -22,6 +23,18 @@ import model.TriviaRoom;
 final class MazePanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
+
+    /** Grid layout dimensions (rows x gap). */
+    private static final Dimension GRID = new Dimension(3, 15);
+
+    /** Padding values. */
+    private static final int[] PADDING = {10, 20, 30, 60};
+
+    /** Layout ratios. */
+    private static final int[] RATIOS = {5, 4, 15};
+
+    /** Font name. */
+    private static final String FONT = "Segoe UI";
 
     /** Room border color. */
     private static final Color ROOM_BORDER = new Color(190, 190, 220);
@@ -95,8 +108,8 @@ final class MazePanel extends JPanel {
         final int rows = myRooms.length;
         final int cols = myRooms[0].length;
 
-        final int cell = Math.min((getWidth() - MazeView.PADDING[PADDING_LARGE]) / cols,
-                (getHeight() - MazeView.PADDING[PADDING_LARGE]) / rows);
+        final int cell = Math.min((getWidth() - PADDING[PADDING_LARGE]) / cols,
+                (getHeight() - PADDING[PADDING_LARGE]) / rows);
         final int offsetX = (getWidth() - cols * cell) / HALF;
         final int offsetY = (getHeight() - rows * cell) / HALF;
 
@@ -106,8 +119,8 @@ final class MazePanel extends JPanel {
         graphics.setColor(EXIT_FILL);
         graphics.fillRect(offsetX + exitCol * cell, offsetY + exitRow * cell, cell, cell);
         graphics.setColor(EXIT_TEXT);
-        graphics.setFont(new Font(MazeView.FONT, Font.BOLD, cell / MazeView.RATIOS[1]));
-        graphics.drawString("EXIT", offsetX + exitCol * cell + cell / MazeView.RATIOS[1],
+        graphics.setFont(new Font(FONT, Font.BOLD, cell / RATIOS[1]));
+        graphics.drawString("EXIT", offsetX + exitCol * cell + cell / RATIOS[1],
                 offsetY + exitRow * cell + cell / HALF);
 
         for (int row = 0; row < rows; row++) {
@@ -120,11 +133,11 @@ final class MazePanel extends JPanel {
         // PLAYER MARKER.
         final int playerX = offsetX + myPlayerX * cell + cell / HALF;
         final int playerY = offsetY + myPlayerY * cell + cell / HALF;
-        final int radius = cell / MazeView.RATIOS[1];
+        final int radius = cell / RATIOS[1];
         graphics.setColor(PLAYER_COLOR);
         graphics.fillOval(playerX - radius, playerY - radius, radius * HALF, radius * HALF);
         graphics.setColor(Color.BLACK);
-        graphics.setFont(new Font(MazeView.FONT, Font.BOLD, radius));
+        graphics.setFont(new Font(FONT, Font.BOLD, radius));
         graphics.drawString("\u2605", playerX - radius / HALF, playerY + radius / HALF);
     }
 
@@ -133,11 +146,11 @@ final class MazePanel extends JPanel {
         theG.setColor(ROOM_COLOR);
         theG.fillRect(theX, theY, theSize, theSize);
         theG.setColor(ROOM_BORDER);
-        theG.setStroke(new BasicStroke(MazeView.GRID.width));
+        theG.setStroke(new BasicStroke(GRID.width));
         theG.drawRect(theX, theY, theSize, theSize);
 
-        final int margin = theSize / MazeView.RATIOS[0];
-        final int thick = Math.max(6, theSize / MazeView.RATIOS[HALF]);
+        final int margin = theSize / RATIOS[0];
+        final int thick = Math.max(6, theSize / RATIOS[HALF]);
         theG.setStroke(new BasicStroke(thick, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
         if (theRoom != null) {

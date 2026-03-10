@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -35,6 +36,25 @@ import model.TrueFalseQuestion;
 final class QuestionPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
+
+    /** Padding values. */
+    private static final int[] PADDING = {10, 20, 30, 60};
+
+    /** Layout ratios. */
+    private static final int[] RATIOS = {5, 4, 15};
+
+    /** Font name. */
+    private static final String FONT = "Segoe UI";
+
+    /** Font sizes. */
+    private static final int[] FONT_SIZES = {16, 18, 24};
+
+    /** Component dimensions. */
+    private static final Dimension[] DIMENSIONS
+        = {new Dimension(110, 70), new Dimension(200, 40), new Dimension(100, 40)};
+
+    /** Closing tags shared by all HTML dialog strings. */
+    private static final String HTML_CLOSE = "</div></html>";
 
     /** Panel background color. */
     private static final Color BG_PANEL = new Color(40, 40, 60);
@@ -84,12 +104,11 @@ final class QuestionPanel extends JPanel {
      * 
      */
     private void setPanel() {
-        setLayout(new BorderLayout(0, MazeView.PADDING[0]));
+        setLayout(new BorderLayout(0, PADDING[0]));
         setBackground(BG_PANEL);
         setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createLineBorder(ACCENT_BORDER, MazeView.RATIOS[1]),
-                " QUESTION AREA ", 0, 0,
-                new Font(MazeView.FONT, Font.BOLD, MazeView.FONT_SIZES[1]), Color.WHITE));
+                BorderFactory.createLineBorder(ACCENT_BORDER, RATIOS[1]), " QUESTION AREA ", 0,
+                0, new Font(FONT, Font.BOLD, FONT_SIZES[1]), Color.WHITE));
 
         setPrompt();
     }
@@ -97,7 +116,7 @@ final class QuestionPanel extends JPanel {
     /** Initializes the prompt label. */
     private void setPrompt() {
         myPrompt = new JLabel("", JLabel.CENTER);
-        myPrompt.setFont(new Font(MazeView.FONT, Font.PLAIN, MazeView.FONT_SIZES[1]));
+        myPrompt.setFont(new Font(FONT, Font.PLAIN, FONT_SIZES[1]));
         myPrompt.setForeground(Color.WHITE);
         myPrompt.setBorder(PROMPT_BORDER);
         myPrompt.setHorizontalAlignment(SwingConstants.CENTER);
@@ -113,7 +132,7 @@ final class QuestionPanel extends JPanel {
     public void loadQuestion(final AbstractTriviaQuestion theQ, final Direction theDir) {
         myDirection = theDir;
         myPrompt.setText("<html><div style='text-align:center;"
-                + "width:100%;max-width:400px'>" + theQ.getQuestion() + MazeView.HTML_CLOSE);
+                + "width:100%;max-width:400px'>" + theQ.getQuestion() + HTML_CLOSE);
         myAnswerArea.removeAll();
 
         if (theQ instanceof ShortQuestion) {
@@ -134,12 +153,12 @@ final class QuestionPanel extends JPanel {
         row.setBackground(BG_PANEL);
 
         final JTextField textField = new JTextField(15);
-        textField.setFont(new Font(MazeView.FONT, Font.PLAIN, MazeView.FONT_SIZES[1]));
-        textField.setPreferredSize(MazeView.DIMENSIONS[1]);
+        textField.setFont(new Font(FONT, Font.PLAIN, FONT_SIZES[1]));
+        textField.setPreferredSize(DIMENSIONS[1]);
 
         final JButton submit = new JButton("Submit");
-        submit.setPreferredSize(MazeView.DIMENSIONS[HALF]);
-        submit.setFont(new Font(MazeView.FONT, Font.BOLD, MazeView.FONT_SIZES[0]));
+        submit.setPreferredSize(DIMENSIONS[HALF]);
+        submit.setFont(new Font(FONT, Font.BOLD, FONT_SIZES[0]));
 
         textField.addActionListener(
                 _ -> myController.submitAnswer(textField.getText().trim(), myDirection));
@@ -148,20 +167,19 @@ final class QuestionPanel extends JPanel {
 
         row.add(textField);
         row.add(submit);
-        myAnswerArea.add(Box.createVerticalStrut(MazeView.PADDING[0]));
+        myAnswerArea.add(Box.createVerticalStrut(PADDING[0]));
         myAnswerArea.add(row);
     }
 
     /** Adds TRUE / FALSE buttons. */
     private void createTF() {
-        final JPanel row
-            = new JPanel(new FlowLayout(FlowLayout.CENTER, 50, MazeView.RATIOS[HALF]));
+        final JPanel row = new JPanel(new FlowLayout(FlowLayout.CENTER, 50, RATIOS[HALF]));
         row.setBackground(BG_PANEL);
 
         final JButton tButton = new JButton("TRUE");
         final JButton fButton = new JButton("FALSE");
-        tButton.setFont(new Font(MazeView.FONT, Font.BOLD, MazeView.PADDING[1]));
-        fButton.setFont(new Font(MazeView.FONT, Font.BOLD, MazeView.PADDING[1]));
+        tButton.setFont(new Font(FONT, Font.BOLD, PADDING[1]));
+        fButton.setFont(new Font(FONT, Font.BOLD, PADDING[1]));
 
         tButton.addActionListener(_ -> myController.submitAnswer("true", myDirection));
         fButton.addActionListener(_ -> myController.submitAnswer("false", myDirection));
@@ -178,13 +196,13 @@ final class QuestionPanel extends JPanel {
      */
     private void createMC(final MultipleChoiceQuestion theQ) {
         final List<String> opts = theQ.getChoices();
-        final JPanel row = new JPanel(new GridLayout(opts.size(), 1, MazeView.RATIOS[0], 12));
+        final JPanel row = new JPanel(new GridLayout(opts.size(), 1, RATIOS[0], 12));
         row.setBackground(BG_PANEL);
 
         final ButtonGroup buttonGroup = new ButtonGroup();
         for (final String choice : opts) {
             final JRadioButton radioButton = new JRadioButton(choice);
-            radioButton.setFont(new Font(MazeView.FONT, Font.PLAIN, MazeView.FONT_SIZES[1]));
+            radioButton.setFont(new Font(FONT, Font.PLAIN, FONT_SIZES[1]));
             radioButton.setForeground(Color.WHITE);
             radioButton.setBackground(BG_PANEL);
             buttonGroup.add(radioButton);
