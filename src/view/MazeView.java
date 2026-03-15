@@ -153,6 +153,7 @@ public final class MazeView extends JFrame {
         setSize(WINDOW);
         setBackground(BG_WINDOW);
         setLayout(new BorderLayout(WINDOW_GAP, WINDOW_GAP));
+        setFocusable(true);
     }
 
     /**
@@ -461,7 +462,6 @@ public final class MazeView extends JFrame {
 
             if (!myIndicator && !myEnding && dir != null) {
                 myController.requestMove(dir);
-
             }
 
         }

@@ -1,9 +1,6 @@
-package control;
+package model;
 
 import java.io.Serializable;
-
-import model.Player;
-import model.TriviaMaze;
 
 /**
  * 

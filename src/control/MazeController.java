@@ -6,6 +6,7 @@ import javax.swing.SwingUtilities;
 
 import model.Direction;
 import model.DoorState;
+import model.GameState;
 import model.MazeGenerator;
 import model.Player;
 import model.QuestionFactory;

@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import model.GameState;
+
 /**
  * 
  * @author peytonlaudanski
