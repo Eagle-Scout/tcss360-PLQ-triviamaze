@@ -97,7 +97,7 @@ public final class MazeView extends JFrame {
     private final QuestionPanel myQuestionPanel;
 
     /** The game controller. */
-    private final transient TriviaGame myController;
+    private final transient TriviaGame myGame;
 
     /** Status bar label. */
     private JLabel myStatus;
@@ -133,9 +133,9 @@ public final class MazeView extends JFrame {
      */
     public MazeView(final TriviaGame theController) {
         super();
-        myController = theController;
+        myGame = theController;
         myMazePanel = new MazePanel();
-        myQuestionPanel = new QuestionPanel(myController);
+        myQuestionPanel = new QuestionPanel(myGame);
 
         setGui();
         buildPanels();
@@ -191,7 +191,6 @@ public final class MazeView extends JFrame {
         add(splitPane, BorderLayout.CENTER);
     }
 
-    // MENU.
     /**
      * Builds and returns the application menu bar.
      * 
@@ -209,10 +208,10 @@ public final class MazeView extends JFrame {
         final JMenuItem restart = new JMenuItem("\uD83D\uDD04 Restart");
         final JMenuItem exit = new JMenuItem("Exit");
 
-        save.addActionListener(_ -> myController.saveGame());
-        load.addActionListener(_ -> myController.loadGame());
-        restart.addActionListener(_ -> myController.restartGame());
-        exit.addActionListener(_ -> myController.endGame());
+        save.addActionListener(_ -> myGame.saveGame());
+        load.addActionListener(_ -> myGame.loadGame());
+        restart.addActionListener(_ -> myGame.restartGame());
+        exit.addActionListener(_ -> myGame.endGame());
 
         gameMenu.add(save);
         gameMenu.add(load);
@@ -273,7 +272,6 @@ public final class MazeView extends JFrame {
         return bar;
     }
 
-    // MOVEMENT.
     /**
      * Creates the directional button panel shown at the bottom of the window.
      * 
@@ -323,13 +321,12 @@ public final class MazeView extends JFrame {
         button.setFocusable(false);
         button.addActionListener(_ -> {
             if (!myIndicator && !myEnding) {
-                myController.requestMove(theDir);
+                myGame.requestMove(theDir);
             }
         });
         return button;
     }
 
-    // CONTROLLER CALLBACKS.
     /**
      * Called on initial load, save/load, and restart. Controller passes the actual player
      * position — never hardcoded to 0,0.
@@ -466,7 +463,7 @@ public final class MazeView extends JFrame {
             final Direction dir = KEY_TO_DIRECTION.get(theEvent.getKeyCode());
 
             if (!myIndicator && !myEnding && dir != null) {
-                myController.requestMove(dir);
+                myGame.requestMove(dir);
             }
 
         }
