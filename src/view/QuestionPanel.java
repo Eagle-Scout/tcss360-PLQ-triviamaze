@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import control.MazeController;
+import control.TriviaGame;
 import model.AbstractTriviaQuestion;
 import model.Direction;
 import model.MultipleChoiceQuestion;
@@ -79,14 +79,14 @@ final class QuestionPanel extends JPanel {
     private Direction myDirection;
 
     /***/
-    private final transient MazeController myController;
+    private final transient TriviaGame myController;
 
     /**
      * Constructs and lays out the question panel.
      * 
      * @param theController
      */
-    QuestionPanel(final MazeController theController) {
+    QuestionPanel(final TriviaGame theController) {
         super();
         myController = theController;
 

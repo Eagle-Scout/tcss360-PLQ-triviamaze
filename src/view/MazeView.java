@@ -23,7 +23,7 @@ import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import control.MazeController;
+import control.TriviaGame;
 import model.AbstractTriviaQuestion;
 import model.Direction;
 import model.DoorState;
@@ -97,7 +97,7 @@ public final class MazeView extends JFrame {
     private final QuestionPanel myQuestionPanel;
 
     /** The game controller. */
-    private final transient MazeController myController;
+    private final transient TriviaGame myController;
 
     /** Status bar label. */
     private JLabel myStatus;
@@ -131,7 +131,7 @@ public final class MazeView extends JFrame {
      *
      * @param theController the game controller
      */
-    public MazeView(final MazeController theController) {
+    public MazeView(final TriviaGame theController) {
         super();
         myController = theController;
         myMazePanel = new MazePanel();
@@ -139,21 +139,22 @@ public final class MazeView extends JFrame {
 
         setGui();
         buildPanels();
-        add(createDirectionPanel(), BorderLayout.SOUTH);
-        setJMenuBar(createMenuBar());
-        addKeyListener(new ArrowKeyListener());
-        setVisible(true);
 
     }
 
     /** Configures basic window properties. */
     private void setGui() {
+
         setTitle("Trivia Maze");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(WINDOW);
         setBackground(BG_WINDOW);
         setLayout(new BorderLayout(WINDOW_GAP, WINDOW_GAP));
         setFocusable(true);
+        setVisible(true);
+        setJMenuBar(createMenuBar());
+        add(createDirectionPanel(), BorderLayout.SOUTH);
+        addKeyListener(new ArrowKeyListener());
     }
 
     /**
@@ -193,6 +194,8 @@ public final class MazeView extends JFrame {
     // MENU.
     /**
      * Builds and returns the application menu bar.
+     * 
+     * @param frame
      *
      * @return the constructed JMenuBar
      */
@@ -273,6 +276,8 @@ public final class MazeView extends JFrame {
     // MOVEMENT.
     /**
      * Creates the directional button panel shown at the bottom of the window.
+     * 
+     * @param
      *
      * @return the direction JPanel
      */

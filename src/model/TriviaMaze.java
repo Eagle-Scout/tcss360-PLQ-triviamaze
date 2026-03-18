@@ -250,22 +250,4 @@ public class TriviaMaze implements Serializable {
 
     }
 
-    /**
-     * 
-     * @param theFactory
-     * @return
-     */
-    public static TriviaMaze generateDefaultMaze(final QuestionFactory theFactory) {
-
-        final Player player = new Player(0, 0);
-        final int exitX = 3;
-        final int exitY = 3;
-
-        // Create a 4x4 maze using MazeGenerator
-        final MazeGenerator generator = new MazeGenerator(4, 4);
-
-        // Exit is bottom-right (3,3)
-        return generator.generateMaze(player, exitX, exitY);
-    }
-
 }
